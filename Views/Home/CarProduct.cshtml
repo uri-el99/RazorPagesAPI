@@ -1,0 +1,53 @@
+﻿@using RazorAPI.Models;
+@model List<Car>
+
+@{
+    ViewData["Title"] = "CarProduct";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        @ViewBag.Accion
+    </div>
+    <div class="card-body">
+
+        <form asp-action="GuardarCambios" asp-controller="Home" method="post">
+
+            <input type="hidden" asp-for="Id" />
+
+            <div class="mb-2">
+                <label class="form-label">Id Vehículo</label>
+                <input type="text" class="form-control form-control-sm" asp-for="Id" />
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Marca</label>
+                <input type="text" class="form-control form-control-sm" asp-for="Make" />
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Modelo</label>
+                <input type="text" class="form-control form-control-sm" asp-for="Model" />
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Color</label>
+                <input type="text" class="form-control form-control-sm" asp-for="Color" />
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Año</label>
+                <input type="text" class="form-control form-control-sm" asp-for="Year" />
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Puertas</label>
+                <input type="text" class="form-control form-control-sm" asp-for="Doors" />
+            </div>
+
+            <button type="submit" class="btn btn-success btn-sm">Guardar Cambios</button>
+            <a asp-action="Index" asp-controller="Home" class="btn btn-warning btn-sm">Volver a lista</a>
+        </form>
+
+
+
+
+    </div>
+
+</div>

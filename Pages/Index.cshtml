@@ -1,0 +1,50 @@
+﻿@page
+@model Pages.IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+</div>
+
+
+<div class="card">
+    <div class="card-header">
+        @ViewBag.Accion
+    </div>
+    <div class="card-body">
+        <a asp-action="Index" asp-controller="Home" class="btn btn-primary">Nuevo vehículo</a>
+        <hr />
+        <table class="Table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Color</th>
+                    <th>Año</th>
+                    <th>Puertas</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                 @foreach (var item in Model.carsList)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Make</td>
+                        <td>@item.Model</td>
+                        <td>@item.Color</td>
+                        <td>@item.Year</td>
+                        <td>@item.Doors</td>
+                        <td>
+                            <a asp-action="Car" asp-controller="Home" asp-route-IdCar="@item.Id" class="btn btn-success">Editar</a>
+                            <a asp-action="Delete" asp-controller="Home" asp-route-IdCar="@item.Id" class="btn btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                }  
+        </table>
+
+    </div>
+</div>
